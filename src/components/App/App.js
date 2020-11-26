@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from 'react'
 import { Route } from 'react-router-dom'
-import Tasks from '../tasks/tasks'
 
 import AuthenticatedRoute from '../AuthenticatedRoute/AuthenticatedRoute'
 import AutoDismissAlert from '../AutoDismissAlert/AutoDismissAlert'
@@ -9,6 +8,8 @@ import SignUp from '../SignUp/SignUp'
 import SignIn from '../SignIn/SignIn'
 import SignOut from '../SignOut/SignOut'
 import ChangePassword from '../ChangePassword/ChangePassword'
+import Tasks from '../tasks/tasks'
+import TaskCreate from '../tasks/taskCreate'
 
 class App extends Component {
   constructor () {
@@ -57,6 +58,9 @@ class App extends Component {
           )} />
           <AuthenticatedRoute user={user} path='/tasks' render={() => (
             <Tasks msgAlert={this.msgAlert} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} path='/task-create' render={() => (
+            <TaskCreate msgAlert={this.msgAlert} user={user} />
           )} />
         </main>
       </Fragment>
