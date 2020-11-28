@@ -1,29 +1,24 @@
 import React, { useState, useEffect, Fragment } from 'react'
-import axios from 'axios'
+import { Link } from 'react-router-dom'
 
-import apiUrl from '../../apiConfig'
+import { indexTasks } from '../../api/tasks'
 
 const Tasks = (props) => {
   const [tasks, setTasks] = useState(null)
   const { user } = props
   useEffect(() => {
-    axios({
-      method: 'GET',
-      url: apiUrl + '/tasks',
-      headers: {
-        Authorization: 'Bearer ' + user.token
-      }
-    })
+    indexTasks(user)
       .then(res => setTasks(res.data.tasks))
       .catch(console.error)
   }, [])
-
   if (!tasks) {
     return <p>Loading...</p>
   }
 
   const tasksIndex = tasks.map(task => (
-    <li key={task._id}>{task.title}</li>
+    <li key={task._id}>
+      <Link to ={`/task-show/${task._id}`}>{task.title}</Link>
+    </li>
   ))
   return (
     <Fragment>
