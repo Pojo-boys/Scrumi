@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import { Redirect } from 'react-router-dom'
-import axios from 'axios'
 
-import apiUrl from '../../apiConfig'
 import messages from '../AutoDismissAlert/messages'
 import TaskForm from '../shared/TaskForm'
+
+import { createTask } from '../../api/tasks.js'
 
 const TaskCreate = props => {
   const [task, setTask] = useState({ title: '', description: '', isChecked: false })
@@ -26,14 +26,7 @@ const TaskCreate = props => {
     event.preventDefault()
     const { msgAlert } = props
 
-    axios({
-      url: `${apiUrl}/tasks`,
-      method: 'POST',
-      headers: {
-        Authorization: `Bearer ${user.token}`
-      },
-      data: { task }
-    })
+    createTask(user, task)
       .then(res => setCreatedTaskId(res.data.task._id))
       .then(() => msgAlert({
         heading: 'Create Success',
