@@ -23,8 +23,8 @@ export const showTask = (user, taskId) => {
 
 export const deleteTask = (user, taskId) => {
   return axios({
-    method: 'POST',
-    url: apiUrl + '/movies/' + taskId,
+    method: 'DELETE',
+    url: apiUrl + '/tasks/' + taskId,
     headers: {
       Authorization: `Bearer ${user.token}`
     }
