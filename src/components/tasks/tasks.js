@@ -16,16 +16,19 @@ const Tasks = (props) => {
   }
 
   const tasksIndex = tasks.map(task => (
-    <li key={task._id}>
+    <h3 key={task._id}>
+      <input
+        type='checkbox'
+        checked={task.isChecked}
+        disabled
+      />
       <Link to ={`/task-show/${task._id}`}>{task.title}</Link>
-    </li>
+    </h3>
   ))
   return (
     <Fragment>
       <h2>Tasks</h2>
-      <ul>
-        {tasksIndex}
-      </ul>
+      {tasksIndex}
     </Fragment>
   )
 }
