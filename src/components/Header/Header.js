@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react'
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
+import logo from './scrumilogo.png'
 
 const authenticatedOptions = (
   <Fragment>
@@ -25,9 +26,9 @@ const alwaysOptions = (
 )
 
 const Header = ({ user }) => (
-  <Navbar bg="primary" variant="dark" expand="md">
+  <Navbar variant="dark" expand="md" className="navbar">
     <Navbar.Brand href="#">
-      Scrumi
+      <img src={logo} alt="scrumi logo" className="logo"/>
     </Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">
