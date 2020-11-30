@@ -30,7 +30,7 @@ const TaskForm = ({ task, handleSubmit, handleChange }) => (
       <Form.Control
         type="checkbox"
         value={task.isChecked}
-        name="completed"
+        name="isChecked"
         onChange={handleChange}
       />
     </Form.Group>
@@ -38,7 +38,7 @@ const TaskForm = ({ task, handleSubmit, handleChange }) => (
       variant="primary"
       type="submit"
     >
-    Submit
+      Submit
     </Button>
   </form>
 )
