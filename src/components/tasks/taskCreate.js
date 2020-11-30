@@ -10,7 +10,7 @@ const TaskCreate = props => {
   const [task, setTask] = useState({ title: '', description: '', isChecked: false })
   const [createdTaskId, setCreatedTaskId] = useState(null)
 
-  const { user } = props
+  const { user, match } = props
 
   const handleChange = event => {
     event.persist()
@@ -48,6 +48,7 @@ const TaskCreate = props => {
           task={task}
           handleChange={handleChange}
           handleSubmit={handleSubmit}
+          match={match}
         />
       </div>
     </div>

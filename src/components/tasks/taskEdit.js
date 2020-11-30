@@ -9,7 +9,6 @@ const TaskUpdate = props => {
   const [updated, setUpdated] = useState(false)
 
   const { user, msgAlert, match } = props
-
   useEffect(() => {
     showTask(user, match.params.taskId)
       .then(res => setTask(res.data.task))
@@ -70,6 +69,7 @@ const TaskUpdate = props => {
         task={task}
         handleChange={handleChange}
         handleSubmit={handleSubmit}
+        match={match}
       />
     </React.Fragment>
   )
