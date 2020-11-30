@@ -11,6 +11,7 @@ import ChangePassword from '../ChangePassword/ChangePassword'
 import Tasks from '../tasks/tasks'
 import TaskCreate from '../tasks/taskCreate'
 import Task from '../tasks/task'
+import TaskUpdate from '../tasks/taskEdit'
 
 class App extends Component {
   constructor () {
@@ -69,8 +70,12 @@ class App extends Component {
             <Task msgAlert={this.msgAlert} user={user} match={match}/>
           )} />
 
-          <AuthenticatedRoute user={user} path='/task-create' render={() => (
-            <TaskCreate msgAlert={this.msgAlert} user={user} />
+          <AuthenticatedRoute user={user} path='/task-create' render={({ match }) => (
+            <TaskCreate msgAlert={this.msgAlert} match={match} user={user} />
+          )} />
+
+          <AuthenticatedRoute user={user} path='/task-update/:taskId' render={({ match, history }) => (
+            <TaskUpdate match={match} history={history} user={user} msgAlert={this.msgAlert} />
           )} />
         </main>
       </Fragment>
