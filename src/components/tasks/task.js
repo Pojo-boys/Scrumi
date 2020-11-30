@@ -32,7 +32,7 @@ const Task = (props) => {
       .then(() => {
         msgAlert({
           heading: 'Task Deleted',
-          messge: 'back to the list of tasks taht exist',
+          message: 'back to the list of tasks that exist',
           variant: 'success'
         })
       })
@@ -52,7 +52,7 @@ const Task = (props) => {
       {task ? (
         <div>
           <h2>{task.title}</h2>
-          <p>Directed by: {task.description}</p>
+          <p>{task.description}</p>
           <button onClick={handleDelete}>Delete</button>
           <Link to={'/task-update/' + task._id}>Update Task</Link>
         </div>
