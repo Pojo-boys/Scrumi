@@ -52,6 +52,11 @@ const Task = (props) => {
       {task ? (
         <div>
           <h2>{task.title}</h2>
+          <input
+            type='checkbox'
+            checked={task.isChecked}
+            disabled
+          />
           <p>{task.description}</p>
           <button onClick={handleDelete}>Delete</button>
           <Link to={'/task-update/' + task._id}>Update Task</Link>
