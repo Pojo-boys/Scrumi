@@ -28,9 +28,15 @@ const TaskUpdate = props => {
   const handleChange = event => {
     event.persist()
 
-    const updatedField = { [event.target.name]: event.target.value }
-
+    // const updatedField = { [event.target.name]: event.target.value }
+    // const updatedCheckbox = { [event.target.name]: event.target.checked }
     setTask(oldTask => {
+      let updatedField
+      if (event.target.type === 'checkbox') {
+        updatedField = { [event.target.name]: event.target.checked }
+      } else {
+        updatedField = { [event.target.name]: event.target.value }
+      }
       const updatedTask = { ...oldTask, ...updatedField }
       return updatedTask
     })
