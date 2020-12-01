@@ -1,6 +1,5 @@
 import React, { useState, useEffect, Fragment } from 'react'
-import { Link } from 'react-router-dom'
-
+import TaskCard from './../shared/Card'
 import { indexTasks } from '../../api/tasks'
 
 const Tasks = (props) => {
@@ -16,14 +15,10 @@ const Tasks = (props) => {
   }
 
   const tasksIndex = tasks.map(task => (
-    <h3 key={task._id}>
-      <input
-        type='checkbox'
-        checked={task.isChecked}
-        disabled
-      />
-      <Link to ={`/task-show/${task._id}`}>{task.title}</Link>
-    </h3>
+    <TaskCard
+      key={task}
+      task={task}
+    />
   ))
   return (
     <Fragment>
