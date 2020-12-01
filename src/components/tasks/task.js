@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import { Link, withRouter } from 'react-router-dom'
+import { withRouter, Redirect } from 'react-router-dom'
 import { showTask, deleteTask } from '../../api/tasks'
+import Button from 'react-bootstrap/Button'
 
 const Task = (props) => {
   const [task, setTask] = useState(null)
+  const [update, setUpdate] = useState(false)
   const { user, msgAlert, match, history } = props
   useEffect(() => {
     showTask(user, match.params.taskId)
@@ -46,6 +48,14 @@ const Task = (props) => {
       })
   }
 
+  const handleUpdate = () => {
+    setUpdate(true)
+  }
+
+  if (update) {
+    return <Redirect to={'/task-update/' + task._id} />
+  }
+
   // If loading (task is null), print 'Loading...'
   return (
     <div>
@@ -58,8 +68,8 @@ const Task = (props) => {
             disabled
           />
           <p>{task.description}</p>
-          <button onClick={handleDelete}>Delete</button>
-          <Link to={'/task-update/' + task._id}>Update Task</Link>
+          <Button className="form-submit-button" onClick={handleDelete}>Delete</Button>
+          <Button onClick={handleUpdate}>Update Task</Button>
         </div>
       ) : 'Loading...'}
     </div>

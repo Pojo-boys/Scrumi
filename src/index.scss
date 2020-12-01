@@ -1,1 +1,23 @@
 @import '~bootstrap/scss/bootstrap';
+
+.logo {
+  height: 40px;
+  width: 40px;
+  // margin: 5px;
+}
+
+.navbar {
+  background: #7CA0A3;
+  display: flex;
+}
+
+.form-submit-button {
+  border-radius: 10px;
+  background-color: Purple;
+
+}
+
+.form-submit-button:hover {
+  background-color: rgb(228, 77, 228);
+  color: white;
+}
