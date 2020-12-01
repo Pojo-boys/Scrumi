@@ -89,11 +89,11 @@ class App extends Component {
             <SprintCreate msgAlert={this.msgAlert} match={match} user={user} />
           )} />
 
-          <AuthenticatedRoute user={user} path='/sprint-show/:sprintId' render={({ match }) => (
+          <AuthenticatedRoute user={user} path='/sprints/:sprintId' render={({ match }) => (
             <SprintShow msgAlert={this.msgAlert} user={user} match={match}/>
           )} />
 
-          <AuthenticatedRoute user={user} path='/sprints' render={() => (
+          <AuthenticatedRoute user={user} exact path='/sprints' render={() => (
             <SprintIndex msgAlert={this.msgAlert} user={user} />
           )} />
 
