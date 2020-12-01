@@ -11,7 +11,7 @@ export const indexSprints = (user) => {
   })
 }
 
-export const showSprint = (user, aprintId) => {
+export const showSprint = (user, sprintId) => {
   return axios({
     method: 'GET',
     url: apiUrl + '/sprints/' + sprintId,

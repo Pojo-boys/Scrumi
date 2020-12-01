@@ -1,13 +1,12 @@
 import React, { useState } from 'react'
 import { Redirect } from 'react-router-dom'
 
-import messages from '../AutoDismissAlert/messages'
 import SprintForm from '../shared/SprintForm'
 
 import { createSprint } from '../../api/sprints.js'
 
 const SprintCreate = props => {
-  const [sprint, setSprint] = useState({ name: '', timeframe: null})
+  const [sprint, setSprint] = useState({ name: '', timeframe: null })
   const [createdSprintId, setCreatedSprintId] = useState(null)
 
   const { user, match } = props
@@ -16,7 +15,7 @@ const SprintCreate = props => {
     event.persist()
     setSprint(prevSprint => {
       const updatedField = { [event.target.name]: event.target.value }
-      const editedTask = Object.assign({}, prevSprint, updatedField)
+      const editedSprint = Object.assign({}, prevSprint, updatedField)
 
       return editedSprint
     })
@@ -34,9 +33,9 @@ const SprintCreate = props => {
         variant: 'success'
       }))
       .catch(err => msgAlert({
-      	heading: 'Create Failure',
-				message: 'Error: ' + err.message,
-				variant: 'danger'
+        heading: 'Create Failure',
+        message: 'Error: ' + err.message,
+        variant: 'danger'
       }))
   }
 

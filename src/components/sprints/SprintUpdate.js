@@ -28,8 +28,7 @@ const SprintUpdate = props => {
     event.persist()
 
     setSprint(oldSprint => {
-      let updatedField
-        updatedField = { [event.target.name]: event.target.value }
+      const updatedField = { [event.target.name]: event.target.value }
       const updatedSprint = { ...oldSprint, ...updatedField }
       return updatedSprint
     })

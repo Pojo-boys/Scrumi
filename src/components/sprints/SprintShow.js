@@ -52,7 +52,7 @@ const SprintShow = (props) => {
   }
 
   if (update) {
-    return <Redirect to={'/sprint-update/' + task._id} />
+    return <Redirect to={'/sprint-update/' + sprint._id} />
   }
 
   // If loading (sprint is null), print 'Loading...'
@@ -70,4 +70,4 @@ const SprintShow = (props) => {
   )
 }
 
-export default withRouter(Task)
+export default withRouter(SprintShow)

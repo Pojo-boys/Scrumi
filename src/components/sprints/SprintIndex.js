@@ -3,14 +3,14 @@ import { indexSprints } from '../../api/sprints'
 
 const SprintIndex = (props) => {
   const [sprints, setSprints] = useState(null)
-  const { user } = props
+  const { user, msgAlert } = props
   useEffect(() => {
     indexSprints(user)
       .then(res => setSprints(res.data.sprints))
       .catch(err => msgAlert({
-      	heading: 'Index Failed',
-				message: 'Error: ' + err.message,
-				variant: 'danger'
+        heading: 'Index Failed',
+        message: 'Error: ' + err.message,
+        variant: 'danger'
       }))
   }, [])
   if (!sprints) {
@@ -18,8 +18,10 @@ const SprintIndex = (props) => {
   }
 
   const sprintsIndex = sprints.map(sprint => (
-    <h3>{sprint.name}</h3>
-		<p>Completion Timeframe: {sprint.timeframe} weeks.</p>
+    <Fragment key={sprint}>
+      <h3>{sprint.name}</h3>
+      <p>Completion Timeframe: {sprint.timeframe} weeks.</p>
+    </Fragment>
   ))
   return (
     <Fragment>
