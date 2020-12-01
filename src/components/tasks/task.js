@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import { showTask, deleteTask } from '../../api/tasks'
+import Button from 'react-bootstrap/Button'
 
 const Task = (props) => {
   const [task, setTask] = useState(null)
@@ -58,8 +59,8 @@ const Task = (props) => {
             disabled
           />
           <p>{task.description}</p>
-          <button onClick={handleDelete}>Delete</button>
-          <Link to={'/task-update/' + task._id}>Update Task</Link>
+          <Button onClick={handleDelete}>Delete</Button>
+          <Link className="link" to={'/task-update/' + task._id}>Update Task</Link>
         </div>
       ) : 'Loading...'}
     </div>
