@@ -58,17 +58,12 @@ const SprintShow = (props) => {
   // If loading (sprint is null), print 'Loading...'
   return (
     <div>
-      {task ? (
+      {sprint ? (
         <div>
-          <h2>{task.title}</h2>
-          <input
-            type='checkbox'
-            checked={task.isChecked}
-            disabled
-          />
-          <p>{task.description}</p>
+          <h2>{sprint.name}</h2>
+          <p>To be completed in: {sprint.timeframe} weeks.</p>
           <Button className="form-submit-button" onClick={handleDelete}>Delete</Button>
-          <Button onClick={handleUpdate}>Update Task</Button>
+          <Button onClick={handleUpdate}>Update Sprint</Button>
         </div>
       ) : 'Loading...'}
     </div>
