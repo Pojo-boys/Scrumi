@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import SprintForm from '../shared/SprintForm'
 import { Redirect } from 'react-router-dom'
 
-import { updateSprint, showSprint } from '../../api/tasks.js'
+import { updateSprint, showSprint } from '../../api/sprints.js'
 
 const SprintUpdate = props => {
   const [sprint, setSprint] = useState({ name: '', timeframe: null })
