@@ -34,6 +34,7 @@ const TaskForm = ({ task, handleSubmit, handleChange, match }) => {
           />
         </Form.Group>
         <Button
+          className="form-submit-button"
           variant="primary"
           type="submit"
         >
@@ -66,6 +67,7 @@ const TaskForm = ({ task, handleSubmit, handleChange, match }) => {
           />
         </Form.Group>
         <Button
+          className="form-submit-button"
           variant="primary"
           type="submit"
         >

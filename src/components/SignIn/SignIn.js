@@ -75,6 +75,7 @@ class SignIn extends Component {
               />
             </Form.Group>
             <Button
+              className="form-submit-button"
               variant="primary"
               type="submit"
             >
