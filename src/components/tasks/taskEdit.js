@@ -70,6 +70,7 @@ const TaskUpdate = props => {
         handleChange={handleChange}
         handleSubmit={handleSubmit}
         match={match}
+        user={user}
       />
     </React.Fragment>
   )

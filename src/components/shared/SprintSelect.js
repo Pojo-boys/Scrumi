@@ -1,31 +1,41 @@
-import React, {useState} from 'react'
+import React, { Fragment, useState } from 'react'
 import { Form } from 'react-bootstrap'
 
-import { indexSprint } from '../../api/sprints'
+import { indexSprints } from '../../api/sprints'
 
 const SprintSelect = props => {
-	const [sprints, setSprints] = useState(null)
-	const {user, handleChange} = props
-	indexSprint(user)
-		.then(res => setSprints(res.data.sprints))
-	const sprintIndex = sprints.map(sprint => (
-		<option
-			value={sprint._id}
-		>
-			{ sprint.name }
-		</option>
-	))
-	return (
-		<Fragment>
-		<Form.Control
-			as-='select'
-			name='name'
-		handleChange={handleChange}
-		>
-			<option defaultValue>Associate Sprint</option>
-		{ sprintIndex }
-		</Form.Control>
-	)
+  const [sprints, setSprints] = useState(null)
+  const { user, handleChange } = props
+  indexSprints(user)
+    .then(res => setSprints(res.data.sprints))
+  // if there are no sprints return you have no sprints, so the app does not crash
+  if (!sprints) {
+    return (
+      <Fragment>
+        <p>You have no sprints</p>
+      </Fragment>
+    )
+  }
+  const sprintIndex = sprints.map(sprint => (
+    <option
+      key={sprint._id}
+      value={sprint._id}
+      name={ sprint.name }
+    >
+      { sprint.name }
+    </option>
+  ))
+  return (
+    <Fragment>
+      <Form.Control
+        as='select'
+        handleChange={handleChange}
+      >
+        <option defaultValue>Associate Sprint</option>
+        { sprintIndex }
+      </Form.Control>
+    </Fragment>
+  )
 }
 
 export default SprintSelect

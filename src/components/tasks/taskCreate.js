@@ -49,7 +49,7 @@ const TaskCreate = props => {
           handleChange={handleChange}
           handleSubmit={handleSubmit}
           match={match}
-					user={user}
+          user={user}
         />
       </div>
     </div>
