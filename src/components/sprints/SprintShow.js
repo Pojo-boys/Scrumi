@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { withRouter, Redirect } from 'react-router-dom'
+import { withRouter, Link, Redirect } from 'react-router-dom'
 import { showSprint, deleteSprint } from '../../api/sprints'
 import Button from 'react-bootstrap/Button'
 import { Card } from 'react-bootstrap'
@@ -40,7 +40,7 @@ const SprintShow = (props) => {
         if (task.sprint === sprint._id) {
           taskJsxArr.push(<Card.text>{task.title}</Card.text>)
         } else {
-          taskJsxArr.push(<Card key={task._id}>{task.title}</Card>)
+          taskJsxArr.push(<Card key={task._id}><Link to={`/task-show/${task._id}`}>{task.title}</Link></Card>)
         }
       })
     } else {
