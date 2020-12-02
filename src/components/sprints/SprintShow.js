@@ -3,11 +3,13 @@ import { withRouter, Redirect } from 'react-router-dom'
 import { showSprint, deleteSprint } from '../../api/sprints'
 import Button from 'react-bootstrap/Button'
 import { Card } from 'react-bootstrap'
+import { indexTasks } from './../../api/tasks'
 
 const SprintShow = (props) => {
   const [sprint, setSprint] = useState(null)
   const [update, setUpdate] = useState(false)
   const { user, msgAlert, match, history } = props
+  const [tasks, setTasks] = useState(null)
   useEffect(() => {
     showSprint(user, match.params.sprintId)
       .then(res => {
@@ -28,6 +30,26 @@ const SprintShow = (props) => {
         })
       })
   }, [])
+
+  useEffect(() => {
+    indexTasks(user)
+      .then(res => setTasks(res.data.tasks))
+      .catch(err => {
+        msgAlert({
+          heading: 'Show sprint Failed',
+          message: 'Error code: ' + err.message,
+          variant: 'danger'
+        })
+      })
+  }, [sprint])
+
+  const parseTasks = () => {
+    tasks.map(task => {
+      if (task.sprint === sprint._id) {
+        return <Card.text>{task.title}</Card.text>
+      }
+    })
+  }
 
   const handleDelete = () => {
     deleteSprint(user, match.params.sprintId)
@@ -65,6 +87,7 @@ const SprintShow = (props) => {
             <Card.Body>
               <Card.Title>{sprint.name}</Card.Title>
               <Card.Text>To be completed in: {sprint.timeframe} weeks</Card.Text>
+              {parseTasks()}
               <Button className="form-submit-button" onClick={handleDelete}>Delete</Button>
               <Button onClick={handleUpdate}>Update Sprint</Button>
             </Card.Body>
