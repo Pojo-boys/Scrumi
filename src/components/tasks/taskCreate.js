@@ -7,7 +7,7 @@ import TaskForm from '../shared/TaskForm'
 import { createTask } from '../../api/tasks.js'
 
 const TaskCreate = props => {
-  const [task, setTask] = useState({ title: '', description: '', isChecked: false })
+  const [task, setTask] = useState({ title: '', description: '', isChecked: false, sprint: undefined })
   const [createdTaskId, setCreatedTaskId] = useState(null)
 
   const { user, match } = props

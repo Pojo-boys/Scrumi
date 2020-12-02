@@ -32,6 +32,7 @@ const SprintSelect = props => {
       <Form.Control
         as='select'
         onChange={handleChange}
+        name="sprint"
       >
         <option defaultValue>Associate Sprint</option>
         { sprintIndex }
