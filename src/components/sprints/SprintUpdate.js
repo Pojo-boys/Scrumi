@@ -5,7 +5,7 @@ import { Redirect } from 'react-router-dom'
 import { updateSprint, showSprint } from '../../api/sprints.js'
 
 const SprintUpdate = props => {
-  const [sprint, setSprint] = useState({ name: '', timeframe: null })
+  const [sprint, setSprint] = useState({ name: '', timeframe: undefined })
   const [updated, setUpdated] = useState(false)
 
   const { user, msgAlert, match } = props

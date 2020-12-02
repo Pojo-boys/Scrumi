@@ -6,7 +6,7 @@ import SprintForm from '../shared/SprintForm'
 import { createSprint } from '../../api/sprints.js'
 
 const SprintCreate = props => {
-  const [sprint, setSprint] = useState({ name: '', timeframe: null })
+  const [sprint, setSprint] = useState({ name: '', timeframe: undefined })
   const [createdSprintId, setCreatedSprintId] = useState(null)
 
   const { user, match } = props
@@ -46,7 +46,7 @@ const SprintCreate = props => {
   return (
     <div className="row">
       <div className="col-sm-10 col-md-8 mx-auto mt-5">
-        <h3>Create a New Task</h3>
+        <h3>Create a New Sprint</h3>
         <SprintForm
           sprint ={sprint}
           handleChange={handleChange}
