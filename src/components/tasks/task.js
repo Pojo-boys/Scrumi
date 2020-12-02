@@ -58,6 +58,17 @@ const Task = (props) => {
   }
 
   // If loading (task is null), print 'Loading...'
+  const checkForSprint = () => {
+    if (!task.sprint) {
+      return (
+        <Card.Text>There is no sprint associated with this task.</Card.Text>
+      )
+    } else if (task.sprint) {
+      return (
+        <Card.Text>Associated with sprint: {task.sprint.name}</Card.Text>
+      )
+    }
+  }
   return (
     <div>
       {task ? (
@@ -66,6 +77,7 @@ const Task = (props) => {
             <Card.Body>
               <Card.Title>{task.title}</Card.Title>
               <Card.Text>{task.description}</Card.Text>
+              {checkForSprint()}
               <input
                 type='checkbox'
                 checked={task.isChecked}
