@@ -11,9 +11,9 @@ Scrumi is an application to help developers with their scrum tasks. Create a tas
 
 ## Important Links
 
-- ![Deployed Api](https://secure-retreat-81068.herokuapp.com/)
-- ![Deployed Client](https://pojo-boys.github.io/Scrumi/#/)
-- ![Backend Repo](https://github.com/Pojo-boys/Api-Scrumi)
+- [Deployed Api](https://secure-retreat-81068.herokuapp.com/)
+- [Deployed Client](https://pojo-boys.github.io/Scrumi/#/)
+- [Backend Repo](https://github.com/Pojo-boys/Api-Scrumi)
 
 ## Technologies Used
 
