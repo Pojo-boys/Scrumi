@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { withRouter, Redirect } from 'react-router-dom'
 import { showSprint, deleteSprint } from '../../api/sprints'
 import Button from 'react-bootstrap/Button'
+import { Card } from 'react-bootstrap'
 
 const SprintShow = (props) => {
   const [sprint, setSprint] = useState(null)
@@ -60,10 +61,14 @@ const SprintShow = (props) => {
     <div>
       {sprint ? (
         <div>
-          <h2>{sprint.name}</h2>
-          <p>To be completed in: {sprint.timeframe} weeks.</p>
-          <Button className="form-submit-button" onClick={handleDelete}>Delete</Button>
-          <Button onClick={handleUpdate}>Update Sprint</Button>
+          <Card>
+            <Card.Body>
+              <Card.Title>{sprint.name}</Card.Title>
+              <Card.Text>To be completed in: {sprint.timeframe} weeks</Card.Text>
+              <Button className="form-submit-button" onClick={handleDelete}>Delete</Button>
+              <Button onClick={handleUpdate}>Update Sprint</Button>
+            </Card.Body>
+          </Card>
         </div>
       ) : 'Loading...'}
     </div>

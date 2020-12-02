@@ -1,4 +1,5 @@
 import React, { useState, useEffect, Fragment } from 'react'
+import UiCard from './../shared/Card'
 import { indexSprints } from '../../api/sprints'
 
 const SprintIndex = (props) => {
@@ -18,10 +19,14 @@ const SprintIndex = (props) => {
   }
 
   const sprintsIndex = sprints.map(sprint => (
-    <Fragment key={sprint}>
-      <h3>{sprint.name}</h3>
-      <p>Completion Timeframe: {sprint.timeframe} weeks.</p>
-    </Fragment>
+    <UiCard
+      key={sprint.name}
+      item={sprint}
+    // <Fragment key={sprint}>
+    //   <h3>{sprint.name}</h3>
+    //   <p>Completion Timeframe: {sprint.timeframe} weeks.</p>
+    // </Fragment>
+    />
   ))
   return (
     <Fragment>

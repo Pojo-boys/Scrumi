@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { withRouter, Redirect } from 'react-router-dom'
 import { showTask, deleteTask } from '../../api/tasks'
 import Button from 'react-bootstrap/Button'
+import { Card } from 'react-bootstrap'
 
 const Task = (props) => {
   const [task, setTask] = useState(null)
@@ -61,15 +62,19 @@ const Task = (props) => {
     <div>
       {task ? (
         <div>
-          <h2>{task.title}</h2>
-          <input
-            type='checkbox'
-            checked={task.isChecked}
-            disabled
-          />
-          <p>{task.description}</p>
-          <Button className="form-submit-button" onClick={handleDelete}>Delete</Button>
-          <Button onClick={handleUpdate}>Update Task</Button>
+          <Card>
+            <Card.Body>
+              <Card.Title>{task.title}</Card.Title>
+              <Card.Text>{task.description}</Card.Text>
+              <input
+                type='checkbox'
+                checked={task.isChecked}
+                disabled
+              />
+              <Button className="form-submit-button" onClick={handleDelete}>Delete</Button>
+              <Button onClick={handleUpdate}>Update Task</Button>
+            </Card.Body>
+          </Card>
         </div>
       ) : 'Loading...'}
     </div>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, Fragment } from 'react'
-import TaskCard from './../shared/Card'
+import UiCard from './../shared/Card'
 import { indexTasks } from '../../api/tasks'
 
 const Tasks = (props) => {
@@ -15,9 +15,9 @@ const Tasks = (props) => {
   }
 
   const tasksIndex = tasks.map(task => (
-    <TaskCard
-      key={task}
-      task={task}
+    <UiCard
+      key={task.title}
+      item={task}
     />
   ))
   return (
