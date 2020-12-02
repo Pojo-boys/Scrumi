@@ -52,7 +52,7 @@ const SprintUpdate = props => {
 
   if (updated) {
     // redirect to the updated sprint
-    return <Redirect to={`/sprints/${match.params.id}`} />
+    return <Redirect to={`/sprints/${match.params.sprintId}`} />
   }
 
   return (
