@@ -6,10 +6,12 @@ import { Card } from 'react-bootstrap'
 import { indexTasks } from './../../api/tasks'
 
 const SprintShow = (props) => {
+  console.log('this is props\n', props)
   const [sprint, setSprint] = useState(null)
   const [update, setUpdate] = useState(false)
   const { user, msgAlert, match, history } = props
   const [tasks, setTasks] = useState(null)
+  const [parsedTasks, setParsedTasks] = useState(null)
   useEffect(() => {
     showSprint(user, match.params.sprintId)
       .then(res => {
@@ -31,6 +33,21 @@ const SprintShow = (props) => {
       })
   }, [])
 
+  const parseTasks = (arr) => {
+    const taskJsxArr = []
+    if (arr !== null) {
+      arr.forEach(task => {
+        if (task.sprint === sprint._id) {
+          taskJsxArr.push(<Card.text>{task.title}</Card.text>)
+        } else {
+          taskJsxArr.push(<Card key={task._id}>{task.title}</Card>)
+        }
+      })
+    } else {
+      return null
+    }
+    return taskJsxArr
+  }
   useEffect(() => {
     indexTasks(user)
       .then(res => setTasks(res.data.tasks))
@@ -43,13 +60,9 @@ const SprintShow = (props) => {
       })
   }, [sprint])
 
-  const parseTasks = () => {
-    tasks.map(task => {
-      if (task.sprint === sprint._id) {
-        return <Card.text>{task.title}</Card.text>
-      }
-    })
-  }
+  useEffect(() => {
+    setParsedTasks(parseTasks(tasks))
+  }, [tasks])
 
   const handleDelete = () => {
     deleteSprint(user, match.params.sprintId)
@@ -79,6 +92,9 @@ const SprintShow = (props) => {
   }
 
   // If loading (sprint is null), print 'Loading...'
+  console.log('this is tasks-globalscope\n', tasks)
+  console.log('sprint is\n', sprint)
+  console.log('parsedTasks are\n', parsedTasks)
   return (
     <div>
       {sprint ? (
@@ -87,7 +103,7 @@ const SprintShow = (props) => {
             <Card.Body>
               <Card.Title>{sprint.name}</Card.Title>
               <Card.Text>To be completed in: {sprint.timeframe} weeks</Card.Text>
-              {parseTasks()}
+              {parsedTasks !== null ? parsedTasks : null}
               <Button className="form-submit-button" onClick={handleDelete}>Delete</Button>
               <Button onClick={handleUpdate}>Update Sprint</Button>
             </Card.Body>

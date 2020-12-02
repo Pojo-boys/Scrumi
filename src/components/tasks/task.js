@@ -83,8 +83,8 @@ const Task = (props) => {
                 checked={task.isChecked}
                 disabled
               />
-              <Button className="form-submit-button" onClick={handleDelete}>Delete</Button>
-              <Button onClick={handleUpdate}>Update Task</Button>
+              <Button className="form-submit-button update" onClick={handleUpdate}>Update</Button>
+              <Button className="form-submit-button delete" onClick={handleDelete}>Delete</Button>
             </Card.Body>
           </Card>
         </div>

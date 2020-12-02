@@ -1,5 +1,9 @@
 @import '~bootstrap/scss/bootstrap';
 
+h1, h2, h3, p {
+  font-family: 'Baloo 2', cursive;
+}
+
 .logo {
   height: 40px;
   width: 40px;
@@ -14,10 +18,28 @@
 .form-submit-button {
   border-radius: 10px;
   background-color: Purple;
+  margin: 5px;
+  font-family: 'Baloo 2', cursive;
+  font-size: 20px;
+}
 
+.delete {
+  background-color: rgba(255, 4, 4, 0.849);
 }
 
 .form-submit-button:hover {
   background-color: rgb(228, 77, 228);
   color: white;
+}
+
+.delete:hover {
+  background-color: rgb(219, 97, 97); 
+}
+
+.update {
+  background-color: rgb(2, 2, 77);
+}
+
+.update:hover {
+  background-color: rgb(64, 64, 209);
 }
