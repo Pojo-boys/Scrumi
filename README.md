@@ -1,4 +1,4 @@
-# Backend Scrumi
+# Frontend Scrumi
 
 ## Planning story
 
