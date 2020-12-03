@@ -74,14 +74,17 @@ const Task = (props) => {
         <div>
           <Card>
             <Card.Body>
-              <Card.Title>{task.title}</Card.Title>
+              <div className='checktask'>
+                <input
+                  type='checkbox'
+                  checked={task.isChecked}
+                  disabled
+                  className='checkB'
+                />
+                <Card.Title>{task.title}</Card.Title>
+              </div>
               <Card.Text>{task.description}</Card.Text>
               {checkForSprint()}
-              <input
-                type='checkbox'
-                checked={task.isChecked}
-                disabled
-              />
               <Button className="form-submit-button update" onClick={handleUpdate}>Update</Button>
               <Button className="form-submit-button delete" onClick={handleDelete}>Delete</Button>
             </Card.Body>
