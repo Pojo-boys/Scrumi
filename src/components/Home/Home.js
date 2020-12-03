@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import banner from './scrumitext.png'
 const Home = () => (
   <Fragment>
-    <img src={banner} />
+    <img src={banner} className='theBanner' alt='Scrumi, in a green, purple and blue stylized font.' />
     <h1>About</h1>
     <p>
         Scrumi is a productivity app for developers. Designed by developers, we know what you are looking for in a scrum focused to do list. Set a sprint, create tasks for that sprint and see your progress throughout the product lifecycle.

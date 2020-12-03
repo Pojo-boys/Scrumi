@@ -13,6 +13,10 @@ import Tasks from '../tasks/tasks'
 import TaskCreate from '../tasks/taskCreate'
 import Task from '../tasks/task'
 import TaskUpdate from '../tasks/taskEdit'
+import SprintCreate from '../sprints/SprintCreate'
+import SprintIndex from '../sprints/SprintIndex'
+import SprintShow from '../sprints/SprintShow'
+import SprintUpdate from '../sprints/SprintUpdate'
 
 class App extends Component {
   constructor () {
@@ -79,6 +83,22 @@ class App extends Component {
 
           <AuthenticatedRoute user={user} path='/task-update/:taskId' render={({ match, history }) => (
             <TaskUpdate match={match} history={history} user={user} msgAlert={this.msgAlert} />
+          )} />
+
+          <AuthenticatedRoute user={user} path='/sprint-create' render={({ match }) => (
+            <SprintCreate msgAlert={this.msgAlert} match={match} user={user} />
+          )} />
+
+          <AuthenticatedRoute user={user} path='/sprints/:sprintId' render={({ match }) => (
+            <SprintShow msgAlert={this.msgAlert} user={user} match={match}/>
+          )} />
+
+          <AuthenticatedRoute user={user} exact path='/sprints' render={() => (
+            <SprintIndex msgAlert={this.msgAlert} user={user} />
+          )} />
+
+          <AuthenticatedRoute user={user} path='/sprint-update/:sprintId' render={({ match, history }) => (
+            <SprintUpdate match={match} history={history} user={user} msgAlert={this.msgAlert} />
           )} />
         </main>
       </Fragment>

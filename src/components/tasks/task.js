@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import { withRouter, Redirect } from 'react-router-dom'
+import { withRouter, Redirect, Link } from 'react-router-dom'
 import { showTask, deleteTask } from '../../api/tasks'
 import Button from 'react-bootstrap/Button'
+import { Card } from 'react-bootstrap'
 
 const Task = (props) => {
   const [task, setTask] = useState(null)
@@ -10,7 +11,6 @@ const Task = (props) => {
   useEffect(() => {
     showTask(user, match.params.taskId)
       .then(res => {
-        console.log(res)
         setTask(res.data.task)
       })
       .then(() => {
@@ -57,19 +57,38 @@ const Task = (props) => {
   }
 
   // If loading (task is null), print 'Loading...'
+  const checkForSprint = () => {
+    if (!task.sprint) {
+      return (
+        <Card.Text>There is no sprint associated with this task.</Card.Text>
+      )
+    } else if (task.sprint) {
+      return (
+        <Card.Text>Associated with: <Link to={`/sprints/${task.sprint._id}`}>{task.sprint.name}</Link> Sprint</Card.Text>
+      )
+    }
+  }
   return (
     <div>
       {task ? (
         <div>
-          <h2>{task.title}</h2>
-          <input
-            type='checkbox'
-            checked={task.isChecked}
-            disabled
-          />
-          <p>{task.description}</p>
-          <Button className="form-submit-button" onClick={handleDelete}>Delete</Button>
-          <Button onClick={handleUpdate}>Update Task</Button>
+          <Card>
+            <Card.Body>
+              <div className='checktask'>
+                <input
+                  type='checkbox'
+                  checked={task.isChecked}
+                  disabled
+                  className='checkB'
+                />
+                <Card.Title>{task.title}</Card.Title>
+              </div>
+              <Card.Text>{task.description}</Card.Text>
+              {checkForSprint()}
+              <Button className="form-submit-button update" onClick={handleUpdate}>Update</Button>
+              <Button className="form-submit-button delete" onClick={handleDelete}>Delete</Button>
+            </Card.Body>
+          </Card>
         </div>
       ) : 'Loading...'}
     </div>
