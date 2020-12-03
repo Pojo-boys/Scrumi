@@ -3,8 +3,9 @@ import React from 'react'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import CheckBox from './CheckBox'
+import SprintSelect from './SprintSelect'
 
-const TaskForm = ({ task, handleSubmit, handleChange, match }) => {
+const TaskForm = ({ task, user, handleSubmit, handleChange, match }) => {
   if (match.url === '/task-update/' + task._id) {
     return (
       <form onSubmit={handleSubmit}>
@@ -31,6 +32,10 @@ const TaskForm = ({ task, handleSubmit, handleChange, match }) => {
           <CheckBox
             task={task}
             handleChange={handleChange}
+          />
+          <SprintSelect
+            handleChange={handleChange}
+            user={user}
           />
         </Form.Group>
         <Button
@@ -64,6 +69,10 @@ const TaskForm = ({ task, handleSubmit, handleChange, match }) => {
             value={task.description}
             name="description"
             onChange={handleChange}
+          />
+          <SprintSelect
+            handleChange={handleChange}
+            user={user}
           />
         </Form.Group>
         <Button

@@ -5,7 +5,7 @@ import { Redirect } from 'react-router-dom'
 import { updateTask, showTask } from '../../api/tasks.js'
 
 const TaskUpdate = props => {
-  const [task, setTask] = useState({ title: '', description: '', isChecked: false })
+  const [task, setTask] = useState({ title: '', description: '', isChecked: false, sprint: undefined })
   const [updated, setUpdated] = useState(false)
 
   const { user, msgAlert, match } = props
@@ -70,6 +70,7 @@ const TaskUpdate = props => {
         handleChange={handleChange}
         handleSubmit={handleSubmit}
         match={match}
+        user={user}
       />
     </React.Fragment>
   )
