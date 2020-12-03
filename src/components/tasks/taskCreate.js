@@ -33,7 +33,11 @@ const TaskCreate = props => {
         message: messages.createSuccess,
         variant: 'success'
       }))
-      .catch(console.error)
+      .catch(() => msgAlert({
+        heading: 'Create Fail',
+        message: 'Failed to create',
+        variant: 'danger'
+      }))
   }
 
   if (createdTaskId) {

@@ -4,11 +4,15 @@ import { indexTasks } from '../../api/tasks'
 
 const Tasks = (props) => {
   const [tasks, setTasks] = useState(null)
-  const { user } = props
+  const { user, msgAlert } = props
   useEffect(() => {
     indexTasks(user)
       .then(res => setTasks(res.data.tasks))
-      .catch(console.error)
+      .catch(() => msgAlert({
+        heading: 'Index Fail',
+        message: 'Failed to index',
+        variant: 'danger'
+      }))
   }, [])
   if (!tasks) {
     return <p>Loading...</p>

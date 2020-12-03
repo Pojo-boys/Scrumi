@@ -6,7 +6,6 @@ import { Card } from 'react-bootstrap'
 import { indexTasks } from './../../api/tasks'
 
 const SprintShow = (props) => {
-  console.log('this is props\n', props)
   const [sprint, setSprint] = useState(null)
   const [update, setUpdate] = useState(false)
   const { user, msgAlert, match, history } = props
@@ -41,7 +40,6 @@ const SprintShow = (props) => {
           if (task.sprint._id === sprint._id) {
             taskJsxArr.push(<Card key={task._id}><Link to={`/task-show/${task._id}`}>{task.title}</Link></Card>)
           }
-        } else {
         }
       })
     } else {
@@ -93,9 +91,6 @@ const SprintShow = (props) => {
   }
 
   // If loading (sprint is null), print 'Loading...'
-  console.log('this is tasks-globalscope\n', tasks)
-  console.log('sprint is\n', sprint)
-  console.log('parsedTasks are\n', parsedTasks)
   return (
     <div>
       {sprint ? (

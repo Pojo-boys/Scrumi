@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { withRouter, Redirect } from 'react-router-dom'
+import { withRouter, Redirect, Link } from 'react-router-dom'
 import { showTask, deleteTask } from '../../api/tasks'
 import Button from 'react-bootstrap/Button'
 import { Card } from 'react-bootstrap'
@@ -11,7 +11,6 @@ const Task = (props) => {
   useEffect(() => {
     showTask(user, match.params.taskId)
       .then(res => {
-        console.log(res)
         setTask(res.data.task)
       })
       .then(() => {
@@ -65,7 +64,7 @@ const Task = (props) => {
       )
     } else if (task.sprint) {
       return (
-        <Card.Text>Associated with sprint: {task.sprint.name}</Card.Text>
+        <Card.Text>Associated with: <Link to={`/sprints/${task.sprint._id}`}>{task.sprint.name}</Link> Sprint</Card.Text>
       )
     }
   }
