@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, Fragment } from 'react'
 import { withRouter, Link, Redirect } from 'react-router-dom'
 import { showSprint, deleteSprint } from '../../api/sprints'
 import Button from 'react-bootstrap/Button'
@@ -93,15 +93,20 @@ const SprintShow = (props) => {
   // If loading (sprint is null), print 'Loading...'
   return (
     <div>
+      <Fragment>
+        <div className='sprintsDisplay'>
+          <h2>Sprints</h2>
+        </div>
+      </Fragment>
       {sprint ? (
         <div>
-          <Card className="card">
+          <Card>
             <Card.Body>
               <Card.Title>{sprint.name}</Card.Title>
               <Card.Text>To be completed in: {sprint.timeframe} weeks</Card.Text>
               {parsedTasks !== null ? parsedTasks : null}
-              <Button className="update" onClick={handleUpdate}>Update</Button>
-              <Button className="form-submit-button delete" onClick={handleDelete}>Delete</Button>
+              <Button className="form-submit-button" onClick={handleDelete}>Delete</Button>
+              <Button onClick={handleUpdate}>Update Sprint</Button>
             </Card.Body>
           </Card>
         </div>

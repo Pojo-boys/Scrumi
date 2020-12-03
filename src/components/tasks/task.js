@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, Fragment } from 'react'
 import { withRouter, Redirect, Link } from 'react-router-dom'
 import { showTask, deleteTask } from '../../api/tasks'
 import Button from 'react-bootstrap/Button'
@@ -70,6 +70,11 @@ const Task = (props) => {
   }
   return (
     <div>
+      <Fragment>
+        <div className='tasksDisplay'>
+          <h2>Tasks</h2>
+        </div>
+      </Fragment>
       {task ? (
         <div>
           <Card>
