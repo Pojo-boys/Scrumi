@@ -95,13 +95,13 @@ const SprintShow = (props) => {
     <div>
       {sprint ? (
         <div>
-          <Card>
+          <Card className="card">
             <Card.Body>
               <Card.Title>{sprint.name}</Card.Title>
               <Card.Text>To be completed in: {sprint.timeframe} weeks</Card.Text>
               {parsedTasks !== null ? parsedTasks : null}
-              <Button className="form-submit-button" onClick={handleDelete}>Delete</Button>
-              <Button onClick={handleUpdate}>Update Sprint</Button>
+              <Button className="update" onClick={handleUpdate}>Update</Button>
+              <Button className="form-submit-button delete" onClick={handleDelete}>Delete</Button>
             </Card.Body>
           </Card>
         </div>
