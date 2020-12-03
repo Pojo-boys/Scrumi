@@ -47,14 +47,16 @@ const TaskCreate = props => {
   return (
     <div className="row">
       <div className="col-sm-10 col-md-8 mx-auto mt-5">
-        <h3>Create a New Task</h3>
-        <TaskForm
-          task={task}
-          handleChange={handleChange}
-          handleSubmit={handleSubmit}
-          match={match}
-          user={user}
-        />
+        <div className='darkForm'>
+          <h3>Create a New Task</h3>
+          <TaskForm
+            task={task}
+            handleChange={handleChange}
+            handleSubmit={handleSubmit}
+            match={match}
+            user={user}
+          />
+        </div>
       </div>
     </div>
   )

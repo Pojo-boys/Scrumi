@@ -26,8 +26,10 @@ const Tasks = (props) => {
   ))
   return (
     <Fragment>
-      <h2>Tasks</h2>
-      {tasksIndex}
+      <div className='tasksDisplay'>
+        <h2>Tasks</h2>
+        {tasksIndex}
+      </div>
     </Fragment>
   )
 }
