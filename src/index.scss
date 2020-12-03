@@ -60,7 +60,9 @@ h1, h2, h3, p {
 .theBanner {
   margin: 10px;
 }
-
+a {
+  text-decoration: underline;
+}
 
 @media (prefers-color-scheme: dark) {
   body {
