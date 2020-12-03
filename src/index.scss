@@ -15,6 +15,11 @@ h1, h2, h3, p {
   display: flex;
 }
 
+.card {
+  margin: 12px;
+  display: flex;
+}
+
 .form-submit-button {
   border-radius: 10px;
   background-color: Purple;
@@ -33,7 +38,7 @@ h1, h2, h3, p {
 }
 
 .delete:hover {
-  background-color: rgb(219, 97, 97); 
+  background-color: rgb(219, 97, 97);
 }
 
 .update {

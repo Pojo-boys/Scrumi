@@ -5,7 +5,9 @@ import { Link } from 'react-router-dom'
 const UiCard = ({ item }) => {
   if (item.name) {
     return (
-      <Card>
+      <Card
+        className="card sprint"
+      >
         <Card.Body>
           <Card.Title><Link to ={`/sprints/${item._id}`}>{item.name}</Link></Card.Title>
           <Card.Text>To be completed in: {item.timeframe} weeks</Card.Text>
@@ -14,7 +16,8 @@ const UiCard = ({ item }) => {
     )
   } else if (item.title) {
     return (
-      <Card>
+      <Card
+        className="card task">
         <Card.Body>
           <Card.Title><Link to ={`/task-show/${item._id}`}>{item.title}</Link></Card.Title>
           <Card.Text>{item.description}</Card.Text>
