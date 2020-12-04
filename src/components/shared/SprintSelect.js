@@ -29,10 +29,12 @@ const SprintSelect = props => {
   ))
   return (
     <Fragment>
+      <p>Choose a sprint if you want to associate the task</p>
       <Form.Control
-        as='select'
         onChange={handleChange}
         name="sprint"
+        as='select'
+        multiple
       >
         <option selected disabled>Sprint?</option>
         { sprintIndex }
