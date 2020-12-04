@@ -63,16 +63,20 @@ const TaskUpdate = props => {
   }
 
   return (
-    <React.Fragment>
-      <h1>Update Task</h1>
-      <TaskForm
-        task={task}
-        handleChange={handleChange}
-        handleSubmit={handleSubmit}
-        match={match}
-        user={user}
-      />
-    </React.Fragment>
+    <div className="row">
+      <div className="col-sm-10 col-md-8 mx-auto mt-5">
+        <div className='darkForm'>
+          <h3>Update Task</h3>
+          <TaskForm
+            task={task}
+            handleChange={handleChange}
+            handleSubmit={handleSubmit}
+            match={match}
+            user={user}
+          />
+        </div>
+      </div>
+    </div>
   )
 }
 

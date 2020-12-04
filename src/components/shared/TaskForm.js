@@ -37,6 +37,7 @@ const TaskForm = ({ task, user, handleSubmit, handleChange, match }) => {
           <SprintSelect
             handleChange={handleChange}
             user={user}
+            task={task}
           />
         </Form.Group>
         <Button
@@ -75,6 +76,7 @@ const TaskForm = ({ task, user, handleSubmit, handleChange, match }) => {
           <SprintSelect
             handleChange={handleChange}
             user={user}
+            task={null}
           />
         </Form.Group>
         <Button
