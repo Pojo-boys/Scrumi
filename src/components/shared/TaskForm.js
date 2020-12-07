@@ -33,9 +33,11 @@ const TaskForm = ({ task, user, handleSubmit, handleChange, match }) => {
             task={task}
             handleChange={handleChange}
           />
+          <p>Add or Change a Sprint. Once a Sprint is associated it can not be removed.</p>
           <SprintSelect
             handleChange={handleChange}
             user={user}
+            task={task}
           />
         </Form.Group>
         <Button
@@ -70,9 +72,11 @@ const TaskForm = ({ task, user, handleSubmit, handleChange, match }) => {
             name="description"
             onChange={handleChange}
           />
+          <p>Add a Sprint now or later. Once a Sprint is associated it can only be updated.</p>
           <SprintSelect
             handleChange={handleChange}
             user={user}
+            task={null}
           />
         </Form.Group>
         <Button

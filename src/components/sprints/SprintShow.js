@@ -36,7 +36,7 @@ const SprintShow = (props) => {
     const taskJsxArr = []
     if (arr !== null) {
       arr.forEach(task => {
-        if (task.sprint) {
+        if (task.sprint && sprint) {
           if (task.sprint._id === sprint._id) {
             taskJsxArr.push(<Card key={task._id}><Link to={`/task-show/${task._id}`}>{task.title}</Link></Card>)
           }

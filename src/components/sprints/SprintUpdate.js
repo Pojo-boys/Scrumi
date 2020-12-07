@@ -56,15 +56,19 @@ const SprintUpdate = props => {
   }
 
   return (
-    <React.Fragment>
-      <h1>Update Sprint</h1>
-      <SprintForm
-        sprint={sprint}
-        handleChange={handleChange}
-        handleSubmit={handleSubmit}
-        match={match}
-      />
-    </React.Fragment>
+    <div className="row">
+      <div className="col-sm-10 col-md-8 mx-auto mt-5">
+        <div className='darkForm'>
+          <h1>Update Sprint</h1>
+          <SprintForm
+            sprint={sprint}
+            handleChange={handleChange}
+            handleSubmit={handleSubmit}
+            match={match}
+          />
+        </div>
+      </div>
+    </div>
   )
 }
 
