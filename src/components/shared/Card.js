@@ -19,16 +19,18 @@ const UiCard = ({ item }) => {
       <Card
         className="card task">
         <Card.Body>
-          <Card.Title><Link to ={`/task-show/${item._id}`}>{item.title}</Link></Card.Title>
-          <Card.Text>{item.description}</Card.Text>
-          <div className='taskStatus'>
-            <h6>Status</h6>
-            <Form.Control
-              type='checkbox'
-              checked={item.isChecked}
-              className='checkbox'
-              disabled
-            />
+          <div className='cardStyle'>
+            <Card.Title className='cardTitle'><Link to ={`/task-show/${item._id}`}>{item.title}</Link></Card.Title>
+            <Card.Text className='cardText'>{item.description}</Card.Text>
+            <div className='taskStatus'>
+              <h6>Status</h6>
+              <Form.Control
+                type='checkbox'
+                checked={item.isChecked}
+                className='checkbox'
+                disabled
+              />
+            </div>
           </div>
         </Card.Body>
       </Card>
