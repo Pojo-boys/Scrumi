@@ -66,7 +66,7 @@ const SprintSelect = props => {
           name="sprint"
           as='select'
         >
-          <option defaultValue disabled>Sprint?</option>
+          <option selected disabled>Sprint?</option>
           { sprintIndex }
         </Form.Control>
       </Fragment>

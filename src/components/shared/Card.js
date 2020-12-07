@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card } from 'react-bootstrap'
+import { Card, Form } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
 const UiCard = ({ item }) => {
@@ -21,11 +21,15 @@ const UiCard = ({ item }) => {
         <Card.Body>
           <Card.Title><Link to ={`/task-show/${item._id}`}>{item.title}</Link></Card.Title>
           <Card.Text>{item.description}</Card.Text>
-          <input
-            type='checkbox'
-            checked={item.isChecked}
-            disabled
-          />
+          <div className='taskStatus'>
+            <h6>Status</h6>
+            <Form.Control
+              type='checkbox'
+              checked={item.isChecked}
+              className='checkbox'
+              disabled
+            />
+          </div>
         </Card.Body>
       </Card>
     )
