@@ -23,7 +23,7 @@ const SprintForm = ({ sprint, handleSubmit, handleChange, match }) => {
           name="timeframe"
           onChange={handleChange}
         >
-          <option defaultValue>Select number of weeks</option>
+          <option selected disabled>Select number of weeks</option>
           <option>1</option>
           <option>2</option>
           <option>3</option>
